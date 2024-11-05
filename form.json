@@ -1,0 +1,87 @@
+{
+  "bool": {
+    "must": [
+      {
+        "bool": {
+          "must": [
+            {
+              "terms": {
+                "type": ["1", "2", "8"]
+              }
+            },
+            {
+              "terms": {
+                "status": ["31094501", "31094502"]
+              }
+            },
+            {
+              "term": {
+                "programmePeriod": "2021 - 2027"
+              }
+            },
+            {
+              "term": {
+                "language": "en"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "bool": {
+          "should": [
+            {
+              "phrase": {
+                "query": "Discrimination",
+                "field": "identifier",
+                "phraseSlop": 0,
+                "boost": 1100
+              }
+            },
+            {
+              "phrase": {
+                "query": "Discrimination",
+                "field": "keywords",
+                "phraseSlop": 0,
+                "boost": 1000
+              }
+            },
+            {
+              "phrase": {
+                "query": "Discrimination",
+                "field": "typesOfAction",
+                "phraseSlop": 1,
+                "boost": 900
+              }
+            },
+            {
+              "phrase": {
+                "query": "Discrimination",
+                "field": "title",
+                "phraseSlop": 1,
+                "boost": 200
+              }
+            },
+            {
+              "phrase": {
+                "query": "Discrimination",
+                "field": "callTitle",
+                "phraseSlop": 1,
+                "boost": 150
+              }
+            },
+            {
+              "phrase": {
+                "query": "Discrimination",
+                "field": "description",
+                "phraseSlop": 2,
+                "boost": 100
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
